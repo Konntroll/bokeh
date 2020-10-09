@@ -1,31 +1,31 @@
 .. _userguide_layout:
 
-Creating Layouts
+Creating layouts
 ================
 
-Bokeh includes several layout options for arranging plots and widgets. They make
-it possible to arrange multiple components to create interactive dashboards or
-data applications.
+Bokeh includes several layout options for plots and widgets. With these you 
+can arrange multiple components to create interactive dashboards and data 
+applications.
 
-The layout functions let you build a grid of plots and widgets. You can nest as
-many rows, columns, or grids of plots together as you'd like. In addition, Bokeh
-layouts support a number of "sizing modes". These sizing modes allow plots and
-widgets to resize based on the browser window.
+Layout functions let you build a grid of plots and widgets. You can have as
+many rows, columns, or grids of plots in one layout as you'd like. Bokeh
+layouts also allow for a number of sizing options, or modes. These modes 
+allow plots and widgets to resize to fit the browser window.
 
 .. _userguide_layout_layouts:
 
-Basic Layouts
+Basic layouts
 -------------
 
-Column Layout
+Column layout
 ~~~~~~~~~~~~~
 
-To display plots or widgets in a vertical fashion, use the |column| function:
+To display plots or widgets vertically, use the |column| function.
 
 .. bokeh-plot:: docs/user_guide/examples/layout_vertical.py
     :source-position: above
 
-Row Layout
+Row layout
 ~~~~~~~~~~
 
 To display plots horizontally, use the |row| function.
@@ -33,41 +33,42 @@ To display plots horizontally, use the |row| function.
 .. bokeh-plot:: docs/user_guide/examples/layout_horizontal.py
     :source-position: above
 
-Grids Layout for Plots
+Grid layout for plots
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The |gridplot| function can be used to arrange
-Bokeh Plots in a grid layout. |gridplot| also collects all
-tools into a single toolbar, and the currently active tool is the same
-for all plots in the grid. It is possible to leave "empty" spaces in
-the grid by passing ``None`` instead of a plot object.
+The |gridplot| function can be used to arrange Bokeh plots in a grid.
+This funciton also merges all tools into a single toolbar. Each plot 
+in the grid then has the same active tool.
+
+You can leave grid cells blank by passing ``None`` to them instead of
+a plot object.
 
 .. bokeh-plot:: docs/user_guide/examples/layout_grid.py
     :source-position: above
 
 For convenience, you can also just pass a list of plots and specify the
-number of columns you want in your grid. For example,
+number of columns you want in your grid. For example:
 
 .. code-block:: python
 
     gridplot([s1, s2, s3], ncols=2)
 
-In addition, you can pass in ``plot_width`` and ``plot_height`` arguments,
-and these will be used to set the size of all your plots.
+You can also pass in ``plot_width`` and ``plot_height`` arguments.
+These dimensions will then appply to all your plots.
 
-By default, ``gridplot`` will merge all tools within each child plot
-to a single toolbar attached to the grid. To disable this behavior,
-you can set the option ``merge_tools`` to ``False``.
+By default, |gridplot| merges all child plot tools into a single 
+parent grid toolbar. To disable this behavior, set ``merge_tools``
+to ``False``.
 
 .. bokeh-plot:: docs/user_guide/examples/layout_grid_convenient.py
     :source-position: above
 
-General Grid Layout
+General grid layout
 ~~~~~~~~~~~~~~~~~~~
 
-The |layout| function can be used to arrange both plots and widgets in a grid,
-generating the necessary |row| and |column| layouts automatically. This allows
-for quickly creating layouts:
+You can use the |layout| function to arrange plots and widgets into a grid.
+This generates the necessary |row| and |column| layouts automatically and
+lets you quickly create layouts. Try the following code as an example.
 
 .. code-block:: python
 
@@ -80,7 +81,7 @@ for quickly creating layouts:
     ])
 
 
-Which produces the following layout:
+This produces the following layout:
 
 .. image:: /_images/dashboard.png
     :width: 500px
@@ -89,13 +90,13 @@ Which produces the following layout:
 |
 
 The full code for this plot is available at
-:bokeh-tree:`examples/howto/layouts/dashboard.py` in the project GitHub
+:bokeh-tree:`examples/howto/layouts/dashboard.py` in the project's GitHub
 repository.
 
 .. _userguide_layout_sizing_mode:
 
-Sizing Mode
------------
+Sizing modes
+------------
 
 Modes
 ~~~~~
